@@ -7,5 +7,7 @@
     <string name="peso_text">Peso (kgs):</string>
     <string name="altura_text">Altura (cm):</string>
     <string name="calculo_imc_button">Calcular Indice de Masa Corporal</string>
+    <string name="log_tag">IMC_DEBUG</string>
+    
 
 </resources>
