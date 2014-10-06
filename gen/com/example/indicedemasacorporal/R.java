@@ -44,6 +44,7 @@ public final class R {
         public static final int app_name=0x7f050000;
         public static final int calculo_imc_button=0x7f050005;
         public static final int hello_world=0x7f050001;
+        public static final int log_tag=0x7f050006;
         public static final int peso_text=0x7f050003;
     }
     public static final class style {
