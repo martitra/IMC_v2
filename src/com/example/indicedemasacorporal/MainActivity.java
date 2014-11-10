@@ -32,7 +32,6 @@ public class MainActivity extends Activity {
 		editPeso = (EditText) findViewById(R.id.editPeso);
 		editAltura = (EditText) findViewById(R.id.editAltura);
 		textViewResultado = (TextView) findViewById(R.id.textViewResultado);
-		
 
 	}
 
@@ -51,7 +50,7 @@ public class MainActivity extends Activity {
 
 			editPeso.setBackgroundColor(Color.TRANSPARENT);
 			editAltura.setBackgroundColor(Color.TRANSPARENT);
-			
+
 			imc = new IndiceMasaCorporal(peso, altura);
 
 			resultado = "Valor IMC = " + imc.valorIndiceMasaCorporal() + " - ";
@@ -60,15 +59,19 @@ public class MainActivity extends Activity {
 			Log.e(LOGTAG, imc.toString());
 
 		} catch (IndiceMasaCorporalException e) {
+
 			if (e.isErrorPeso()) {
 				editPeso.setBackgroundColor(Color.LTGRAY);
+				Toast.makeText(getApplicationContext(),
+						"Introduzca una peso entre 10-300 kg",
+						Toast.LENGTH_SHORT).show();
 			}
 			if (e.isErrorAltura()) {
 				editAltura.setBackgroundColor(Color.LTGRAY);
+				Toast.makeText(getApplicationContext(),
+						"Introduzca una altura entre 100-300 cm",
+						Toast.LENGTH_SHORT).show();
 			}
-			String texto = "Error en entrada de datos";
-			Toast.makeText(getApplicationContext(), texto, Toast.LENGTH_SHORT)
-					.show();
 		} catch (Exception e) {
 			Log.e(LOGTAG, e.getMessage());
 		}
