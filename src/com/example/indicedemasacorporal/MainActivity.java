@@ -16,8 +16,8 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
-	private static final String LOGTAG="MainActivity";
-	
+	private static final String LOGTAG = "MainActivity";
+
 	private IndiceMasaCorporal imc;
 	EditText editPeso;
 	EditText editAltura;
@@ -32,6 +32,7 @@ public class MainActivity extends Activity {
 		editPeso = (EditText) findViewById(R.id.editPeso);
 		editAltura = (EditText) findViewById(R.id.editAltura);
 		textViewResultado = (TextView) findViewById(R.id.textViewResultado);
+		
 
 	}
 
@@ -48,34 +49,39 @@ public class MainActivity extends Activity {
 			peso = editPeso.getText().toString();
 			altura = editAltura.getText().toString();
 
-			imc = new IndiceMasaCorporal(peso, altura);
+			editPeso.setBackgroundColor(Color.TRANSPARENT);
+			editAltura.setBackgroundColor(Color.TRANSPARENT);
 			
+			imc = new IndiceMasaCorporal(peso, altura);
+
 			resultado = "Valor IMC = " + imc.valorIndiceMasaCorporal() + " - ";
 			resultado = resultado.concat(imc.clasificacionOMS());
 			textViewResultado.setText(resultado);
 			Log.e(LOGTAG, imc.toString());
-			
+
 		} catch (IndiceMasaCorporalException e) {
 			if (e.isErrorPeso()) {
-				editPeso.setBackgroundColor(Color.LTGRAY);}
-			if (e.isErrorAltura()){
-				editAltura.setBackgroundColor(Color.LTGRAY);}
+				editPeso.setBackgroundColor(Color.LTGRAY);
+			}
+			if (e.isErrorAltura()) {
+				editAltura.setBackgroundColor(Color.LTGRAY);
+			}
 			String texto = "Error entrada de datos";
-			Toast.makeText(getApplicationContext(), texto, 
-					Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), texto, Toast.LENGTH_SHORT)
+					.show();
 		} catch (Exception e) {
 			Log.e(LOGTAG, e.getMessage());
 		}
 	}
-	
+
 	public void onClickButtonAcercaDe(View v) {
 		try {
-		Intent i = new Intent(this, AcercaDe.class);
-		startActivity(i);
-		} catch(Exception e) {
+			Intent i = new Intent(this, AcercaDe.class);
+			startActivity(i);
+		} catch (Exception e) {
 			Log.e(LOGTAG, e.getMessage());
 		}
-		
+
 	}
 
 	@Override
