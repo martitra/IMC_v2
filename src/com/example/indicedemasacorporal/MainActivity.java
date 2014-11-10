@@ -66,7 +66,7 @@ public class MainActivity extends Activity {
 			if (e.isErrorAltura()) {
 				editAltura.setBackgroundColor(Color.LTGRAY);
 			}
-			String texto = "Error entrada de datos";
+			String texto = "Error en entrada de datos";
 			Toast.makeText(getApplicationContext(), texto, Toast.LENGTH_SHORT)
 					.show();
 		} catch (Exception e) {
